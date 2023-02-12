@@ -1,0 +1,17 @@
+import 'package:hattabio/consts/consts.dart';
+import 'package:hattabio/consts/images.dart';
+const socialIconList=[icfacebookLogo,icGoogleLogo,icTwitterLogo];
+const slidersList1=[imgSlider1,imgSlider2];
+const slidersList2=[imgSlider3,imgSlider4];
+const slidersList3=[imgSlider5,imgSlider6,imgSlider7];
+const FreaturedImages1=[imgs1];
+const FreaturedImages2=[imgs2];
+const FreaturedImages3=[imgs3];
+const FreaturedTitles1=[shirts];
+const FreaturedTitles2=[trousers];
+const FreaturedTitles3=[jumpsuits];
+const categoriesList=[Shirts,Trousers,Jumpsuits];
+const categoriesList1=[Shirts,Trousers,Jumpsuits,Shirts,Trousers,Jumpsuits,Jumpsuits,Trousers,Trousers];
+const categoriesImages=[imgs1,imgs2,imgs3,imgp1,imgp2,imgp3,imgp4,imgp5,imgp6];
+const profliebuttonslist=[orders,messages];
+const profliebuttonsIcon=[icorders,icmessages];
