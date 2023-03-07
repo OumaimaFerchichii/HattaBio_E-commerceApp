@@ -15,3 +15,5 @@ const categoriesList1=[Shirts,Trousers,Jumpsuits,Shirts,Trousers,Jumpsuits,Jumps
 const categoriesImages=[imgs1,imgs2,imgs3,imgp1,imgp2,imgp3,imgp4,imgp5,imgp6];
 const profliebuttonslist=[orders,messages];
 const profliebuttonsIcon=[icorders,icmessages];
+const paymentmethodImg=[imgcod];
+const paymentmethods=[cod];

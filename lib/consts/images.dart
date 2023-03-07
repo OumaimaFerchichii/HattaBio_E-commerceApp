@@ -32,4 +32,7 @@ const imgp6="assets/images/imgp6 .jpg";
 const profileimg1="assets/images/p1.jpg";
 const icorders="assets/icons/orders.png";
 const icmessages="assets/icons/messages.png";
+//payment
+
+const imgcod="assets/images/cod.png";
 

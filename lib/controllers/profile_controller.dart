@@ -1,6 +1,7 @@
 import 'dart:io';
 
 import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:firebase_storage/firebase_storage.dart';
 import 'package:flutter/services.dart';
 import 'package:get/get.dart';
@@ -15,7 +16,8 @@ class profilecontroller extends GetxController{
   var profileimagelink='';
   var isloading=false.obs;
   var namecontroller=TextEditingController();
-   var passwordcontroller=TextEditingController();
+   var oldpasswordcontroller=TextEditingController();
+   var newpasswordcontroller=TextEditingController();
    
   changeimage(context) async{
     try {
@@ -52,6 +54,14 @@ updateprofile({name,password,imgUrl}) async {
   },SetOptions(merge: true));
   isloading(false);
 
+}
+changeAuthpassword({email,password,newpassword})async{
+  final cred=EmailAuthProvider.credential(email: email, password: password);
+  await currentUser !.reauthenticateWithCredential(cred).then((value) {
+    currentUser!.updatePassword(newpassword);
+  }).catchError((error){
+    print(error.toString());
+  });
 }
 
 

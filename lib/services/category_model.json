@@ -1,0 +1,97 @@
+{
+
+"categories": [
+
+
+{
+   
+
+ "name": "Shirts",
+ "subcategories":
+ [
+ "Men shirts "
+
+ ]
+
+},
+{
+    "name": "Tousers",
+    "subcategories":
+    [
+    "Men trousers"
+   
+    ]
+
+
+
+},
+{
+    "name": "Jumpsuits",
+    "subcategories":
+    [
+    "Men jumpsuits"
+   
+    ]
+
+
+
+},
+{
+   
+
+    "name": "Shirts",
+    "subcategories":
+    [
+    "Men shirts "
+   
+    ]
+   
+   },
+   {
+       "name": "Tousers",
+       "subcategories":
+       [
+       "Men trousers"
+      
+       ]
+   
+   
+   
+   },
+   {
+       "name": "Jumpsuits",
+       "subcategories":
+       [
+       "Men jumpsuits"
+      
+       ]
+   
+   
+   
+   },
+   {
+    "name": "Tousers",
+    "subcategories":
+    [
+    "Men trousers"
+   
+    ]
+
+
+
+},
+{
+    "name": "Tousers",
+    "subcategories":
+    [
+    "Men trousers"
+   
+    ]
+
+
+
+}
+
+
+]
+}

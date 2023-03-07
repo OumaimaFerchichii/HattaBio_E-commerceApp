@@ -21,7 +21,7 @@ class Editprofile extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     var controller=Get.find<profilecontroller>();
-
+   
     return bgWidget
     (
       child: Scaffold(
@@ -33,10 +33,23 @@ class Editprofile extends StatelessWidget {
         
         
         
-        
-               controller.profileimagepath.isEmpty? Image.asset(profileimg1,width:80,fit: BoxFit.cover,).
+        //if image data is empty and controller is empty
+             data['imageUrl']==''&&  controller.profileimagepath.isEmpty?
+                Image.asset(profileimg1,width:80,fit: BoxFit.cover,).
                box.roundedFull.
-               clip(Clip.antiAlias).make():Image.network((controller.profileimagepath.value),
+               clip(Clip.antiAlias).make():
+               //data image is not empty and controller is empty 
+
+               data['imageUrl']!=''&& controller.profileimagepath.isEmpty?
+               
+               Image.network(data['imageUrl'],width:80,
+               fit: BoxFit.cover,).box.roundedFull.clip(Clip.antiAlias).make()
+        
+               :
+
+               
+               
+               Image.file(File(controller.profileimagepath.value),
                width:80,
                fit: BoxFit.cover,
                
@@ -59,29 +72,68 @@ class Editprofile extends StatelessWidget {
                 isPass: false,
           
                ),
+               10.heightBox,
                customtextfield(
-                controller: controller.passwordcontroller,
+                controller: controller.oldpasswordcontroller,
                 hint: passwordHint,
-                title: password,
+                title: oldpassword,
+                isPass: true,
+                
+                
+               ),
+               10.heightBox,
+                customtextfield(
+                controller: controller.newpasswordcontroller,
+                hint: passwordHint,
+                title: newpassword,
                 isPass: true,
                 
                 
                ),
                20.heightBox,
-               controller.isloading.value?CircularProgressIndicator(
+               controller.isloading.value? const CircularProgressIndicator(
                 valueColor: AlwaysStoppedAnimation (Colors.green),
-               ): SizedBox(
+               ): 
+               SizedBox(
                 width: context.screenHeight-60,
                  child: ourbutton(
-                  color: Colors.green,onpress: ()async{
+                  color: Colors.green,
+                  onpress: ()async{
+
+
+
                     controller.isloading(true);
-                    await controller.uploadprofileimage();
+
+                    //if image not selected 
+                    if(controller.profileimagepath.value.isNotEmpty){
+                      await controller.uploadprofileimage();
+
+                    }else{
+                      controller.profileimagelink=data['imageUrl'];
+                    }
+// if old paassword match data base 
+if (data['password']==controller.oldpasswordcontroller.text){
+
+
+  
+   await controller.changeAuthpassword(
+    email: data['email']
+,
+password: controller.oldpasswordcontroller.text,
+newpassword: controller.newpasswordcontroller.text
+  );
                     await controller.updateprofile(
                       imgUrl: controller.profileimagelink,
                       name: controller.namecontroller.text,
-                      password: controller.passwordcontroller.text,
+                      password: controller.newpasswordcontroller.text,
                     );
                     VxToast.show(context, msg: "Updated");
+
+}else {
+  VxToast.show(context, msg: 'Wrong old password ' );
+  controller.isloading(false);
+}
+                   
                   },textcolor: whiteColor,title: "Save "
                  ),
                ),

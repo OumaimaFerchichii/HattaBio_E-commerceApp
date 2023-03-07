@@ -26,4 +26,5 @@ const Shirts="Shirts";
  const Trousers="Trousers";
 const Jumpsuits="Jumpsuits";
 //profile strings
-const orders="My orders",messages="Messages";
+const orders="My orders",messages="Messages",oldpassword="Old password",newpassword="New password";
+const cod="Cash on delivery";

@@ -52,7 +52,7 @@ class ProfileScreen extends StatelessWidget {
                             child: Icon(Icons.edit, color: whiteColor))
                         .onTap(() {
                           controller.namecontroller.text=data['name'];
-                          controller.passwordcontroller.text=data['password'];
+                         
                       Get.to(() => Editprofile(
                         data:data
                       ));
@@ -63,8 +63,19 @@ class ProfileScreen extends StatelessWidget {
                     padding: const EdgeInsets.symmetric(horizontal: 8.0),
                     child: Row(
                       children: [
+
+                        data['imageUrl']==''?
+
+                         
+
+
                         Image.asset(
                           profileimg1,
+                          width: 80,
+                          fit: BoxFit.cover,
+                        ).box.roundedFull.clip(Clip.antiAlias).make():
+                        Image.network(
+                          data['imageUrl'],
                           width: 80,
                           fit: BoxFit.cover,
                         ).box.roundedFull.clip(Clip.antiAlias).make(),

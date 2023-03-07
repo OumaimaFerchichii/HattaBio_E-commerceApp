@@ -4,6 +4,7 @@ import 'package:flutter/src/widgets/placeholder.dart';
 import 'package:get/get.dart';
 import 'package:hattabio/consts/consts.dart';
 import 'package:hattabio/consts/lists.dart';
+import 'package:hattabio/controllers/product_controller.dart';
 import 'package:hattabio/views/category_screen/categories_deyails.dart';
 import 'package:hattabio/widgets_common/bg_widget.dart';
 
@@ -12,6 +13,7 @@ class CategoryScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    var controller=Get.put(ProductController());
     return bgWidget(
       child: Scaffold(
         appBar: AppBar(
@@ -34,6 +36,9 @@ class CategoryScreen extends StatelessWidget {
                 "${categoriesList1[index]}".text.color(darkFontGrey).fontFamily(bold).align(TextAlign.center).make(),
               ],
             ).box.white.rounded.clip(Clip.antiAlias).outerShadowSm.make().onTap(() {
+
+
+              controller.getSubCategories(categoriesList[index]);
               Get.to(()=>CategoriesDetails(title: categoriesList1[index]));
             });
           }),
